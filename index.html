@@ -1,89 +1,95 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sylhet Polytechnic Institute — Student Card</title>
+  <title>Login Page</title>
   <style>
-    :root{--accent:#0b63d6;--muted:#666}
+    :root{ --bg: #f3f6ff; --card:#ffffff; --accent:#4f46e5; --muted:#6b7280 }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0;background:#f6f8fb;color:#111}
-    .container{max-width:900px;margin:36px auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#4aa3ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px}
-    h1{margin:0;font-size:20px}
-    p.lead{margin:4px 0 0;color:var(--muted)}
-    .card{background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(12,30,60,0.07);padding:20px;margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:20px}
-    .avatar{flex:0 0 140px;height:140px;border-radius:10px;background:linear-gradient(135deg,#e9f2ff,#eef8ff);display:flex;align-items:center;justify-content:center;font-size:42px;color:var(--accent);font-weight:700}
-    .info{flex:1;min-width:220px}
-    .info h2{margin:0;font-size:22px}
-    .meta{color:var(--muted);margin-top:6px}
-    .fields{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .field{background:#f3f7fb;padding:10px 12px;border-radius:8px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
-    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
-    @media(max-width:560px){.card{flex-direction:column;align-items:stretch}.avatar{width:100%;height:120px}}
+    body{margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(135deg,#eef2ff, #ffffff); height:100vh; display:grid; place-items:center}
+    .card{width:360px; background:var(--card); padding:28px; border-radius:12px; box-shadow:0 8px 30px rgba(15,23,42,0.08)}
+    h1{margin:0 0 8px;font-size:20px}
+    p.lead{margin:0 0 18px;color:var(--muted);font-size:14px}
+
+    label{display:block;font-size:13px;margin-bottom:6px;color:#111827}
+    .input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px}
+    .row{display:flex;gap:10px}
+    .actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+    .btn{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+    .muted{color:var(--muted);font-size:13px}
+    .small{font-size:13px}
+    .note{background:#f8fafc;border-left:4px solid #e6e9ef;padding:8px 10px;border-radius:6px;margin-top:12px;color:#374151;font-size:13px}
+
+    .footer{margin-top:16px;text-align:center;font-size:13px;color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">SPI</div>
-        <div>
-          <h1>Sylhet Polytechnic Institute</h1>
-          <p class="lead">Simple student info page</p>
-        </div>
+  <main class="card" role="main">
+    <h1>লগইন</h1>
+    <p class="lead">ব্যবহারকারীর নাম ও পাসওয়ার্ড দিয়ে লগইন করুন (ডেমো পেজ)</p>
+
+    <form id="loginForm" autocomplete="off">
+      <div style="margin-bottom:12px">
+        <label for="username">ইউজার নাম</label>
+        <input id="username" class="input" name="username" type="text" placeholder="ইউজার নাম লিখুন" required />
       </div>
-      <div>
-        <small style="color:var(--muted)">Roll: <strong>871234</strong></small>
-      </div>
-    </header>
 
-    <section class="card" aria-labelledby="student-name">
-      <div class="avatar" aria-hidden="true">MA</div>
-      <div class="info">
-        <h2 id="student-name">Md Abid Hossen</h2>
-        <div class="meta">Student, Sylhet Polytechnic Institute</div>
-
-        <div class="fields">
-          <div class="field"><strong>Roll:</strong> 871234</div>
-          <div class="field"><strong>Department:</strong> Computer Technology</div>
-          <div class="field"><strong>Session:</strong> 2022-2023</div>
-        </div>
-
-        <div style="margin-top:14px">
-          <a class="btn" href="#contact">Contact</a>
+      <div style="margin-bottom:8px">
+        <label for="password">পাসওয়ার্ড</label>
+        <div style="position:relative">
+          <input id="password" class="input" name="password" type="password" placeholder="পাসওয়ার্ড" required />
+          <button type="button" id="toggle" aria-label="Toggle password" style="position:absolute;right:6px;top:6px;padding:6px;border-radius:6px;border:none;background:transparent;cursor:pointer;font-size:12px;color:var(--muted)">দেখাও</button>
         </div>
       </div>
 
-      <div style="flex-basis:100%;height:0;border-bottom:1px dashed #eef3fb;margin-top:16px"></div>
-
-      <div style="width:100%;margin-top:12px">
-        <h3 style="margin:6px 0">About</h3>
-        <p style="margin:0;color:var(--muted)">এই পেজটি একটি সরল স্টুডেন্ট তথ্য পেজ — এখানে আপনি ছবি, কোর্স, প্রজেক্ট অথবা সোশ্যাল লিংক যোগ করতে পারবেন।</p>
+      <div class="actions">
+        <label class="small"><input type="checkbox" id="remember" /> মনে রাখুন</label>
+        <button class="btn" type="submit">লগইন</button>
       </div>
-    </section>
+    </form>
 
-    <section id="contact" class="card" style="margin-top:18px;flex-direction:column">
-      <h3 style="margin:0 0 8px">Contact / Notes</h3>
-      <p style="margin:0 0 12px;color:var(--muted)">যোগাযোগ বা নোট যোগ করতে এখানে লিখুন — উদাহরণ: ফোন, ইমেইল, ঠিকানা ইত্যাদি।</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <div style="flex:1;min-width:200px">
-          <label style="display:block;font-size:13px;margin-bottom:6px;color:var(--muted)">Phone</label>
-          <input placeholder="017xxxxxxxx" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef9" />
-        </div>
-        <div style="flex:1;min-width:200px">
-          <label style="display:block;font-size:13px;margin-bottom:6px;color:var(--muted)">Email</label>
-          <input placeholder="abid@example.com" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef9" />
-        </div>
-      </div>
-    </section>
+    <div class="note" id="message" style="display:none"></div>
 
-    <footer>
-      © BK Abid — Student page • Generated for Md Abid Hossen (Roll 871234)
-    </footer>
-  </div>
+    <div class="footer">ডেমো: ক্লায়েন্ট-সাইড ভেরিফিকেশন — বাস্তবে সার্ভার-সাইড ব্যবহার করুন।</div>
+  </main>
+
+  <script>
+    // Demo credentials (change or remove for production)
+    const DEMO_USERNAME = 'Aysha Siddika';
+    const DEMO_PASSWORD = '871246';
+
+    const form = document.getElementById('loginForm');
+    const msg = document.getElementById('message');
+    const toggle = document.getElementById('toggle');
+    const pwd = document.getElementById('password');
+
+    toggle.addEventListener('click', () => {
+      if (pwd.type === 'password') { pwd.type = 'text'; toggle.textContent = 'লুকাও'; }
+      else { pwd.type = 'password'; toggle.textContent = 'দেখাও'; }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = form.username.value.trim();
+      const p = form.password.value;
+
+      // Simple client-side demo check
+      if (u === DEMO_USERNAME && p === DEMO_PASSWORD) {
+        showMessage('সফল: আপনি লগইন করেছেন।', true);
+      } else {
+        showMessage('ত্রুটি: ইউজারনেইম বা পাসওয়ার্ড ভুল।', false);
+      }
+    });
+
+    function showMessage(text, ok){
+      msg.style.display = 'block';
+      msg.textContent = text;
+      msg.style.borderColor = ok ? '#bbf7d0' : '#fecaca';
+      msg.style.background = ok ? '#ecfdf5' : '#fff1f2';
+      if(ok){ setTimeout(()=>{ msg.textContent = 'রিডাইরেক্ট করা হচ্ছে...'; },800); }
+    }
+  </script>
 </body>
 </html>
