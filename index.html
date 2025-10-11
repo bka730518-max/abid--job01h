@@ -1,95 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login Page</title>
+  <title>BK - Home</title>
   <style>
-    :root{ --bg: #f3f6ff; --card:#ffffff; --accent:#4f46e5; --muted:#6b7280 }
+    :root{--accent:#0ec5ff;--dark:#072032;--muted:#6b7280}
     *{box-sizing:border-box}
-    body{margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(135deg,#eef2ff, #ffffff); height:100vh; display:grid; place-items:center}
-    .card{width:360px; background:var(--card); padding:28px; border-radius:12px; box-shadow:0 8px 30px rgba(15,23,42,0.08)}
-    h1{margin:0 0 8px;font-size:20px}
-    p.lead{margin:0 0 18px;color:var(--muted);font-size:14px}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;color:#061524;background:#f7fafc}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:rgba(255,255,255,0.02)}
+    .brand{font-weight:800;color:var(--dark)}
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none}
 
-    label{display:block;font-size:13px;margin-bottom:6px;color:#111827}
-    .input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px}
-    .row{display:flex;gap:10px}
-    .actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
-    .btn{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer}
-    .btn:active{transform:translateY(1px)}
-    .muted{color:var(--muted);font-size:13px}
-    .small{font-size:13px}
-    .note{background:#f8fafc;border-left:4px solid #e6e9ef;padding:8px 10px;border-radius:6px;margin-top:12px;color:#374151;font-size:13px}
+    /* Banner */
+    .banner{position:relative;display:flex;align-items:center;justify-content:center;padding:60px 20px;height:360px;background-color:#042234;overflow:hidden}
+    .banner::before{content:"";position:absolute;inset:0;background-image:url('file:///mnt/data/bk abid.jpg');background-size:cover;background-position:center;filter:grayscale(20%) contrast(85%);opacity:0.95}
+    .banner-overlay{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;color:white;text-align:center}
+    .hero-name{font-family: 'Brush Script MT', cursive; font-size:64px; letter-spacing:1px; margin:0 0 6px; color: #26c6ff; text-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .hero-title{font-family: 'Georgia', serif;font-size:28px;margin:0 0 8px;color:#fff}
+    .hero-sub{font-family: 'Pacifico', cursive; margin:6px 0 14px; opacity:0.95}
+    .follow{margin-top:8px;font-weight:600}
+    .socials{display:flex;gap:12px;margin-top:12px}
+    .socials a{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:999px;background:rgba(255,255,255,0.08);color:#fff;text-decoration:none;font-weight:700}
 
-    .footer{margin-top:16px;text-align:center;font-size:13px;color:var(--muted)}
+    /* Main content */
+    main{max-width:900px;margin:-48px auto 40px;padding:28px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    h2.section-title{font-size:20px;margin:0 0 12px;color:#071b2a}
+    .bio{line-height:1.7;color:#334155}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .card{padding:14px;border:1px dashed #e6eef5;border-radius:8px;background:#fbfeff}
+
+    /* Contact */
+    .contact{margin-top:18px;padding:14px;border-radius:8px;background:linear-gradient(90deg,rgba(14,197,255,0.06),rgba(9,132,255,0.04));border:1px solid rgba(6,25,36,0.04)}
+
+    footer{padding:18px;text-align:center;color:#6b7280}
+
+    @media (max-width:800px){.hero-name{font-size:40px}.banner{height:320px}.features{grid-template-columns:1fr}}
+    @media (max-width:480px){.hero-name{font-size:32px}.banner{height:300px;padding:36px}}
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>লগইন</h1>
-    <p class="lead">ব্যবহারকারীর নাম ও পাসওয়ার্ড দিয়ে লগইন করুন (ডেমো পেজ)</p>
+  <header>
+    <div class="brand">DesignBK</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <form id="loginForm" autocomplete="off">
-      <div style="margin-bottom:12px">
-        <label for="username">ইউজার নাম</label>
-        <input id="username" class="input" name="username" type="text" placeholder="ইউজার নাম লিখুন" required />
+  <section class="banner" id="home">
+    <div class="banner-overlay">
+      <h1 class="hero-name">Bk Abid Hossain</h1>
+      <div class="hero-title">Graphic Designer</div>
+      <div class="hero-sub">Your Dream, My Design</div>
+      <div style="margin-top:8px;color:#dff6ff;font-weight:700">Creative Logo Designer</div>
+      <div class="socials" aria-hidden="true">
+        <a href="#">IG</a>
+        <a href="#">F</a>
+        <a href="#">T</a>
+        <a href="#">WA</a>
       </div>
+    </div>
+  </section>
 
-      <div style="margin-bottom:8px">
-        <label for="password">পাসওয়ার্ড</label>
-        <div style="position:relative">
-          <input id="password" class="input" name="password" type="password" placeholder="পাসওয়ার্ড" required />
-          <button type="button" id="toggle" aria-label="Toggle password" style="position:absolute;right:6px;top:6px;padding:6px;border-radius:6px;border:none;background:transparent;cursor:pointer;font-size:12px;color:var(--muted)">দেখাও</button>
-        </div>
-      </div>
+  <main>
+    <h2 class="section-title">About — পরিচিতি</h2>
+    <p class="bio">👋 Hi, I'm <strong>Abid Hossain</strong>, a Professional Graphics Designer with over two years of experience in visual design, branding, and digital art. I specialize in creating stunning and impactful designs that elevate brands and help businesses stand out.</p>
 
-      <div class="actions">
-        <label class="small"><input type="checkbox" id="remember" /> মনে রাখুন</label>
-        <button class="btn" type="submit">লগইন</button>
-      </div>
-    </form>
+    <h3 style="margin-top:18px">✨ What I Offer</h3>
+    <div class="features">
+      <div class="card">✔ Logo Design &amp; Branding</div>
+      <div class="card">✔ Social Media Graphics</div>
+      <div class="card">✔ Business Cards &amp; Stationery</div>
+      <div class="card">✔ Brochure &amp; Flyer Design</div>
+      <div class="card">✔ Print &amp; Digital Marketing Materials</div>
+      <div class="card">✔ Photo Editing &amp; Retouching</div>
+    </div>
 
-    <div class="note" id="message" style="display:none"></div>
+    <h3 style="margin-top:18px">💡 Why Choose Me?</h3>
+    <ul>
+      <li>✅ 100% Unique and Custom Designs</li>
+      <li>✅ High-Quality Work &amp; Fast Delivery</li>
+      <li>✅ Adobe Photoshop &amp; Illustrator Expert</li>
+      <li>✅ Client Satisfaction is My Priority</li>
+    </ul>
 
-    <div class="footer">ডেমো: ক্লায়েন্ট-সাইড ভেরিফিকেশন — বাস্তবে সার্ভার-সাইড ব্যবহার করুন।</div>
+    <section id="contact" class="contact">
+      <h3 class="section-title">Contact</h3>
+      <p class="bio">Email: <a href="mailto:bka730518@gmail.com">bka730518@gmail.com</a> | Phone: <a href="tel:+8801785064074">01785064074</a></p>
+    </section>
   </main>
 
-  <script>
-    // Demo credentials (change or remove for production)
-    const DEMO_USERNAME = 'Aysha Siddika';
-    const DEMO_PASSWORD = '871246';
+  <footer>
+    <div class="copyright">© <span id="year"></span> BK. All rights reserved.</div>
+  </footer>
 
-    const form = document.getElementById('loginForm');
-    const msg = document.getElementById('message');
-    const toggle = document.getElementById('toggle');
-    const pwd = document.getElementById('password');
-
-    toggle.addEventListener('click', () => {
-      if (pwd.type === 'password') { pwd.type = 'text'; toggle.textContent = 'লুকাও'; }
-      else { pwd.type = 'password'; toggle.textContent = 'দেখাও'; }
-    });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const u = form.username.value.trim();
-      const p = form.password.value;
-
-      // Simple client-side demo check
-      if (u === DEMO_USERNAME && p === DEMO_PASSWORD) {
-        showMessage('সফল: আপনি লগইন করেছেন।', true);
-      } else {
-        showMessage('ত্রুটি: ইউজারনেইম বা পাসওয়ার্ড ভুল।', false);
-      }
-    });
-
-    function showMessage(text, ok){
-      msg.style.display = 'block';
-      msg.textContent = text;
-      msg.style.borderColor = ok ? '#bbf7d0' : '#fecaca';
-      msg.style.background = ok ? '#ecfdf5' : '#fff1f2';
-      if(ok){ setTimeout(()=>{ msg.textContent = 'রিডাইরেক্ট করা হচ্ছে...'; },800); }
-    }
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
